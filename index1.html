@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Information Form</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        .container {
+            max-width: 500px;
+            margin: auto;
+        }
+        label {
+            display: block;
+            margin: 10px 0 5px;
+        }
+        input {
+            width: 100%;
+            padding: 8px;
+            margin: 5px 0 15px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        button {
+            padding: 10px 15px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        .student-info {
+            margin-top: 20px;
+            border-top: 2px solid #ccc;
+            padding-top: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h2>Student Information Form</h2>
+        <form id="studentForm" onsubmit="return displayStudentInfo(event)">
+            <label for="studentId">Student ID</label>
+            <input type="text" id="studentId" required>
+
+            <label for="name">Name</label>
+            <input type="text" id="name" required>
+
+            <label for="age">Age</label>
+            <input type="number" id="age" required>
+
+            <label for="grade">Grade</label>
+            <input type="text" id="grade" required>
+
+            <button type="submit">Submit</button>
+        </form>
+
+        <div class="student-info" id="studentInfo">
+            <!-- Student info will be displayed here -->
+        </div>
+    </div>
+
+    <script>
+        function displayStudentInfo(event) {
+            // Prevent the form from submitting and refreshing the page
+            event.preventDefault();
+
+            // Get the values from the input fields
+            const studentId = document.getElementById('studentId').value;
+            const name = document.getElementById('name').value;
+            const age = document.getElementById('age').value;
+            const grade = document.getElementById('grade').value;
+
+            // Display the student information
+            const studentInfoDiv = document.getElementById('studentInfo');
+            studentInfoDiv.innerHTML = `
+                <h3>Student Information:</h3>
+                <p><strong>Student ID:</strong> ${studentId}</p>
+                <p><strong>Name:</strong> ${name}</p>
+                <p><strong>Age:</strong> ${age}</p>
+                <p><strong>Grade:</strong> ${grade}</p>
+            `;
+        }
+    </script>
+
+</body>
+</html>
